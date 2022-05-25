@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RecipeCommandToRecipeTest {
 
-    public static final  Long id = 1L;
+    public static final  String id = "1L";
     public static final  String description = "Description";
     public static final  Integer prepTime = 10;
     public static final Integer cookTime = 10;
@@ -26,11 +26,11 @@ class RecipeCommandToRecipeTest {
     public static final String url = "url";
     public static final String directions = "Follow";
     public static final Difficulty difficulty = Difficulty.EASY;
-    public static final Long CAT_ID_1 = 1L;
-    public static final Long CAT_ID_2 = 2L;
-    public static final Long INGRED_ID_1 = 3L;
-    public static final Long INGRED_ID_2 = 4L;
-    public static final Long NOTES_ID = 9L;
+    public static final String CAT_ID_1 = "1L";
+    public static final String CAT_ID_2 = "2L";
+    public static final String INGRED_ID_1 = "3L";
+    public static final String INGRED_ID_2 = "4L";
+    public static final String NOTES_ID = "9L";
 
     RecipeCommandToRecipe converter;
 
@@ -55,7 +55,7 @@ class RecipeCommandToRecipeTest {
     @Test
     void convert() {
         RecipeCommand command = new RecipeCommand();
-        command.setId(id);
+        command.setId(String.valueOf(id));
         command.setDescription(description);
         command.setCookTime(cookTime);
         command.setPrepTime(prepTime);
@@ -66,23 +66,23 @@ class RecipeCommandToRecipeTest {
         command.setUrl(url);
 
         NotesCommand notes = new NotesCommand();
-        notes.setId(NOTES_ID);
+        notes.setId(String.valueOf(NOTES_ID));
         command.setNotes(notes);
 
         CategoryCommand category1 = new CategoryCommand();
-        category1.setId(CAT_ID_1);
+        category1.setId(String.valueOf(CAT_ID_1));
 
         CategoryCommand category2 = new CategoryCommand();
-        category1.setId(CAT_ID_2);
+        category1.setId(String.valueOf(CAT_ID_2));
 
         command.getCategories().add(category1);
         command.getCategories().add(category2);
 
         IngredientCommand ingredient = new IngredientCommand();
-        ingredient.setId(INGRED_ID_1);
+        ingredient.setId(String.valueOf(INGRED_ID_1));
 
         IngredientCommand ingredient2 = new IngredientCommand();
-        ingredient2.setId(INGRED_ID_2);
+        ingredient2.setId(String.valueOf(INGRED_ID_2));
 
         command.getIngredients().add(ingredient);
         command.getIngredients().add(ingredient2);

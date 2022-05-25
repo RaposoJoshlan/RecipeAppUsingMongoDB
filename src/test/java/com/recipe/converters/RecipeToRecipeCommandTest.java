@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RecipeToRecipeCommandTest {
 
-    public static final  Long id = 1L;
+    public static final String id = "1L";
     public static final  String description = "Description";
     public static final  Integer prepTime = 10;
     public static final Integer cookTime = 10;
@@ -21,11 +21,11 @@ class RecipeToRecipeCommandTest {
     public static final String url = "url";
     public static final String directions = "Follow";
     public static final Difficulty difficulty = Difficulty.EASY;
-    public static final Long CAT_ID_1 = 1L;
-    public static final Long CAT_ID_2 = 2L;
-    public static final Long INGRED_ID_1 = 3L;
-    public static final Long INGRED_ID_2 = 4L;
-    public static final Long NOTES_ID = 9L;
+    public static final String CAT_ID_1 = "1L";
+    public static final String CAT_ID_2 = "2L";
+    public static final String INGRED_ID_1 = "3L";
+    public static final String INGRED_ID_2 = "4L";
+    public static final String NOTES_ID = "9L";
 
     RecipeToRecipeCommand converter;
 
@@ -50,7 +50,7 @@ class RecipeToRecipeCommandTest {
     @Test
     void convert() {
         Recipe recipe = new Recipe();
-        recipe.setId(id);
+        recipe.setId(String.valueOf(id));
         recipe.setDescription(description);
         recipe.setCookTime(cookTime);
         recipe.setPrepTime(prepTime);
@@ -61,23 +61,23 @@ class RecipeToRecipeCommandTest {
         recipe.setUrl(url);
 
         Notes notes = new Notes();
-        notes.setId(NOTES_ID);
+        notes.setId(String.valueOf(NOTES_ID));
         recipe.setNotes(notes);
 
         Category category1 = new Category();
-        category1.setId(CAT_ID_1);
+        category1.setId(String.valueOf(CAT_ID_1));
 
         Category category2 = new Category();
-        category1.setId(CAT_ID_2);
+        category1.setId(String.valueOf(CAT_ID_2));
 
         recipe.getCategories().add(category1);
         recipe.getCategories().add(category2);
 
         Ingredient ingredient = new Ingredient();
-        ingredient.setId(INGRED_ID_1);
+        ingredient.setId(String.valueOf(INGRED_ID_1));
 
         Ingredient ingredient2 = new Ingredient();
-        ingredient2.setId(INGRED_ID_2);
+        ingredient2.setId(String.valueOf(INGRED_ID_2));
 
         recipe.getIngredients().add(ingredient);
         recipe.getIngredients().add(ingredient2);

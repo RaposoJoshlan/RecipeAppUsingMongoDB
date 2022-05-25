@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class CategoryToCategoryCommandTest {
 
     public static final String DESCRIPTION = "description";
-    public static final Long ID_VALUE = 1L;
+    public static final String ID_VALUE = "1L";
+
 
     CategoryToCategoryCommand converter;
 
@@ -23,7 +24,7 @@ class CategoryToCategoryCommandTest {
     void convert() {
 
         Category category = new Category();
-        category.setId(ID_VALUE);
+        category.setId(String.valueOf(ID_VALUE));
         category.setDescription(DESCRIPTION);
 
         CategoryCommand command = converter.convert(category);

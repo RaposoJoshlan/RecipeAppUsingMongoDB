@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class NotesCommandToNotesTest {
 
-    public static final Long id = 1L;
+    public static final String id = "1L";
     public static final  String recipeNotes = "Description";
 
     NotesCommandToNotes converter;
@@ -33,7 +33,7 @@ class NotesCommandToNotesTest {
     @Test
     void convert() {
         NotesCommand command = new NotesCommand();
-        command.setId(id);
+        command.setId(String.valueOf(id));
         command.setRecipeNotes(recipeNotes);
 
         Notes notes = converter.convert(command);

@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UnitOfMeasureToUnitOfMeasureCommandTest {
 
-    public static final Long id = 1L;
+    public static final String id = "1L";
     public static final String description = "Description";
 
     UnitOfMeasureToUnitOfMeasureCommand converter;
@@ -32,7 +32,7 @@ class UnitOfMeasureToUnitOfMeasureCommandTest {
     @Test
     void convert() {
         UnitOfMeasure unitOfMeasure = new UnitOfMeasure();
-        unitOfMeasure.setId(id);
+        unitOfMeasure.setId(String.valueOf(id));
         unitOfMeasure.setDescription(description);
 
         UnitOfMeasureCommand command = converter.convert(unitOfMeasure);
